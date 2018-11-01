@@ -410,11 +410,11 @@ void memoryGame::formatBody()		// Creates essential text
 			"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" <<
 			"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
 
-	cout << "\t\t\t\t\t\t\t     If the picture you just saw was a Cherry, type \"Cherry\"." << endl;
-	cout << "\t\t\t\t\t\t\t\t\tIf it was a BAR block, type \"BAR\"." << endl;
-	cout << "\t\t\t\t\t\t\t\t\tIf it was a large 7, type \"Seven\"." << endl;
-	cout << "\t\t\t\t\t\t\t\t\tIf it was a small man, type \"Man\"." << endl;
-	cout << "\t\t\t\t\t\t\t\t     If it was a checkmark, type \"Checkmark\".\n\n\n" << endl;
+	cout << "\t\t\t\t\t\t\t     If the picture you just saw was a Cherry, type "1"." << endl;
+	cout << "\t\t\t\t\t\t\t\t\tIf it was a BAR block, type "2"." << endl;
+	cout << "\t\t\t\t\t\t\t\t\tIf it was a large 7, type "3"." << endl;
+	cout << "\t\t\t\t\t\t\t\t\tIf it was a small man, type "4"." << endl;
+	cout << "\t\t\t\t\t\t\t\t     If it was a checkmark, type "5".\n\n\n" << endl;
 
 	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
 	cout << "\t\t\t\t\t\t\t\t\t\t\t";
