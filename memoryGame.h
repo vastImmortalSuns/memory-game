@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 #include <time.h>
-#include <stdlib.h>
 #include <string>
+#include <stdlib.h>
 #include <windows.h>
 
 using namespace std;
@@ -15,16 +15,16 @@ public:
 	void checkInput(string inp);
 	void startGame();
 
-	void runLvlOne();			// Functiosn to run specific levels.
+	void runLvlOne();			// Functions to run specific levels.
 	void runLvlTwo();
 	void runLvlThree();
 	void runLvlFour();
 	void runLvlFive();
 
-	void distinguish(int lvlNum);		// Functions that create the pictures.
+	void distinguish(int lvlNum);	// Functions that create the pictures.
 	void createPicture(int selector, int marker);
 
-	void formatBody();			// Functions that assist in formattign text.
+	void formatBody();			// Functions that assist in formatting text.
 	void formatGuess(int lvlNum);
 	void exit();
 
@@ -82,13 +82,11 @@ void memoryGame::checkInput(string inp)
 	string input; 
 
 	if (inp == "yes" || inp == "Yes")
-	{
 		startGame();
-	}
+
 	else if (inp == "no" || inp == "No")
-	{
 		cout << "Goodbye!" << endl;
-	}
+	
 	else
 	{
 		cout << "I didn't catch that, please enter either \"Yes\" or \"No\"." << endl;
@@ -118,12 +116,11 @@ void memoryGame::runLvlOne()
 	if (guess == picOne)	
 	{
 		level++;
-		formatGuess(level);		// If the user guessed correctly, format 
-		runLvlTwo();			// the next section of text properly and
-	}							// run the next level.
+		formatGuess(level);		// If the user guessed correctly, format the next
+		runLvlTwo();			// section of text properly and run the next level.
+	}					
 	else
 		exit();
-		cout << endl;
 }
 
 void memoryGame::runLvlTwo()
@@ -173,7 +170,7 @@ void memoryGame::runLvlThree()
 
 		if (guess == picTwo)
 		{
-			cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the second picture you saw?\n" << endl;
+			cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the third picture you saw?\n" << endl;
 			cout << "\t\t\t\t\t\t\t\t\t\t\t";
 			cin >> guess;
 
@@ -211,13 +208,13 @@ void memoryGame::runLvlFour()
 
 		if (guess == picTwo)
 		{
-			cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the second picture you saw?\n" << endl;
+			cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the third picture you saw?\n" << endl;
 			cout << "\t\t\t\t\t\t\t\t\t\t\t";
 			cin >> guess;
 
 			if (guess == picThree)
 			{
-				cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the second picture you saw?\n" << endl;
+				cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the fourth picture you saw?\n" << endl;
 				cout << "\t\t\t\t\t\t\t\t\t\t\t";
 				cin >> guess;
 
@@ -258,26 +255,24 @@ void memoryGame::runLvlFive()
 
 		if (guess == picTwo)
 		{
-			cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the second picture you saw?\n" << endl;
+			cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the third picture you saw?\n" << endl;
 			cout << "\t\t\t\t\t\t\t\t\t\t\t";
 			cin >> guess;
 
 			if (guess == picThree)
 			{
-				cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the second picture you saw?\n" << endl;
+				cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the fourth picture you saw?\n" << endl;
 				cout << "\t\t\t\t\t\t\t\t\t\t\t";
 				cin >> guess;
 
 				if (guess == picFour)
 				{
-					cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the second picture you saw?\n" << endl;
+					cout << "\n\t\t\t\t\t\t\t\t   Correct! What was the fifth picture you saw?\n" << endl;
 					cout << "\t\t\t\t\t\t\t\t\t\t\t";
 					cin >> guess;
 
 					if (guess != picFive)
-					{
 						cout << "\n\t\t\t\t\t\t\t\t\t\t     You win!" << endl;
-					}
 				}
 				else
 					exit();
@@ -296,8 +291,8 @@ void memoryGame::distinguish(int lvlNum)	// This function distinguishes how many
 {						// to create based on the appropriate level.
 	int picID = 1;
 
-	picOne = rand() % numVars + 1;		// Initializes five variables, all assigned random numbers 1 through 5.
-	picTwo = rand() % numVars + 1;		// These serve as a way to randomly generate the pictures.
+	picOne = rand() % numVars + 1;			// Initializes five variables, all assigned random numbers 1 through 5.
+	picTwo = rand() % numVars + 1;			// These serve as a way to randomly generate the pictures.
 	picThree = rand() % numVars + 1;
 	picFour = rand() % numVars + 1;
 	picFive = rand() % numVars + 1;
@@ -345,7 +340,7 @@ void memoryGame::distinguish(int lvlNum)	// This function distinguishes how many
 }
 
 void memoryGame::createPicture(int picNum, int picID)		// Creates a pictures based on the assigned number, 
-{								// and assigns an ID number for easy identification.
+{															// and assigns an ID number for easy identification.
 	if (picNum == 1)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t   _______" << endl;
@@ -410,15 +405,15 @@ void memoryGame::formatBody()		// Creates essential text
 			"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" <<
 			"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
 
-	cout << "\t\t\t\t\t\t\t     If the picture you just saw was a Cherry, type "1"." << endl;
-	cout << "\t\t\t\t\t\t\t\t\tIf it was a BAR block, type "2"." << endl;
-	cout << "\t\t\t\t\t\t\t\t\tIf it was a large 7, type "3"." << endl;
-	cout << "\t\t\t\t\t\t\t\t\tIf it was a small man, type "4"." << endl;
-	cout << "\t\t\t\t\t\t\t\t     If it was a checkmark, type "5".\n\n\n" << endl;
+	cout << "\t\t\t\t\t\t\t      If the picture you just saw was a Cherry, type \"1\"." << endl;
+	cout << "\t\t\t\t\t\t\t\t\tIf it was a BAR block, type \"2\"." << endl;
+	cout << "\t\t\t\t\t\t\t\t\tIf it was a large 7, type \"3\"." << endl;
+	cout << "\t\t\t\t\t\t\t\t\tIf it was a small man, type \"4\"." << endl;
+	cout << "\t\t\t\t\t\t\t\t\tIf it was a checkmark, type \"5\".\n\n\n" << endl;
 
 	cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << endl;
 	cout << "\t\t\t\t\t\t\t\t\t\t\t";
-}
+}  
 
 void memoryGame::formatGuess(int lvlNum)	// Creates more essential text based on the level the user is on.
 {
@@ -432,6 +427,12 @@ void memoryGame::formatGuess(int lvlNum)	// Creates more essential text based on
 
 void memoryGame::exit()
 {
+	string input;
+
 	cout << "\t\t\t\t\t\t\t      That was incorrect! If you want to quit, type \"quit\"." << endl;
 	cout << "\t\t\t\t\t\t\t      If you want to return to the main menu, type \"Menu\"." << endl;
+	cout << "\t\t\t\t\t\t\t";
+	cin >> input;
+
+	checkInput(input);
 }
