@@ -8,23 +8,23 @@
 using namespace std;
 
 class memoryGame		// Thanks for checking this out. If you have any ideas/questions
-{						// feel free to email me at jenkinsb1@spu.edu
+{				// feel free to email me at jenkinsb1@spu.edu
 public:
-	void run();						// These four functions deal with setting up the game
+	void run();				// These four functions deal with setting up the game
 	void initializeMenu();			// and gathering ther user's input.
 	void checkInput(string inp);
 	void startGame();
 
-	void runLvlOne();				// Functiosn to run specific levels.
+	void runLvlOne();			// Functiosn to run specific levels.
 	void runLvlTwo();
 	void runLvlThree();
 	void runLvlFour();
 	void runLvlFive();
 
-	void distinguish(int lvlNum);	// Functions that create the pictures.
+	void distinguish(int lvlNum);		// Functions that create the pictures.
 	void createPicture(int selector, int marker);
 
-	void formatBody();				// Functiosn that assist in formattign text.
+	void formatBody();			// Functions that assist in formattign text.
 	void formatGuess(int lvlNum);
 	void exit();
 
@@ -293,11 +293,11 @@ void memoryGame::runLvlFive()
 }
 
 void memoryGame::distinguish(int lvlNum)	// This function distinguishes how many pictures 
-{											// to create based on the appropriate level.
+{						// to create based on the appropriate level.
 	int picID = 1;
 
-	picOne = rand() % numVars + 1;			// Initializes five variables, all assigned random numbers 1 through 5.
-	picTwo = rand() % numVars + 1;			// These serve as a way to randomly generate the pictures.
+	picOne = rand() % numVars + 1;		// Initializes five variables, all assigned random numbers 1 through 5.
+	picTwo = rand() % numVars + 1;		// These serve as a way to randomly generate the pictures.
 	picThree = rand() % numVars + 1;
 	picFour = rand() % numVars + 1;
 	picFive = rand() % numVars + 1;
@@ -345,7 +345,7 @@ void memoryGame::distinguish(int lvlNum)	// This function distinguishes how many
 }
 
 void memoryGame::createPicture(int picNum, int picID)		// Creates a pictures based on the assigned number, 
-{															// and assigns an ID number for easy identification.
+{								// and assigns an ID number for easy identification.
 	if (picNum == 1)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t   _______" << endl;
