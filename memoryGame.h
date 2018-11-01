@@ -10,21 +10,21 @@ using namespace std;
 class memoryGame		// Thanks for checking this out. If you have any ideas/questions
 {						// feel free to email me at jenkinsb1@spu.edu
 public:
-	void run();
-	void initializeMenu();
+	void run();						// These four functions deal with setting up the game
+	void initializeMenu();			// and gathering ther user's input.
 	void checkInput(string inp);
 	void startGame();
 
-	void runLvlOne();
+	void runLvlOne();				// Functiosn to run specific levels.
 	void runLvlTwo();
 	void runLvlThree();
 	void runLvlFour();
 	void runLvlFive();
 
-	void distinguish(int lvlNum);
+	void distinguish(int lvlNum);	// Functions that create the pictures.
 	void createPicture(int selector, int marker);
 
-	void formatBody();
+	void formatBody();				// Functiosn that assist in formattign text.
 	void formatGuess(int lvlNum);
 	void exit();
 
@@ -33,17 +33,6 @@ private:
 	int numVars = 5;
 	int picOne, picTwo, picThree, picFour, picFive;
 };
-
-void memoryGame::run()
-{
-	string input;
-	initializeMenu();
-
-	cout << "\n\n\t\t\t\t\t\t\t Do you want to play? If so, enter \"Yes\". If not, enter \"No\".\n" << endl;
-	cout << "\t\t\t\t\t\t\t\t\t\t       ";
-	cin >> input;
-	checkInput(input);
-}
 
 void memoryGame::initializeMenu()
 {
@@ -77,6 +66,17 @@ void memoryGame::initializeMenu()
 	cout << "\t\t\t\t\t          A           D           V           ||           P           R           O" << endl;
 }
 
+void memoryGame::run()
+{
+	string input;
+	initializeMenu();
+
+	cout << "\n\n\t\t\t\t\t\t\t Do you want to play? If so, enter \"Yes\". If not, enter \"No\".\n" << endl;
+	cout << "\t\t\t\t\t\t\t\t\t\t       ";
+	cin >> input;
+	checkInput(input);		// Validates the user's input.
+}
+
 void memoryGame::checkInput(string inp)
 {
 	string input; 
@@ -97,7 +97,7 @@ void memoryGame::checkInput(string inp)
 	}
 }
 
-void memoryGame::startGame()
+void memoryGame::startGame()	// Initiliazes the random element and starts the first level.
 {
 	srand(time(NULL));
 	runLvlOne();
@@ -108,9 +108,9 @@ void memoryGame::runLvlOne()
 	int guess;
 	int level = 1;
 
-	distinguish(level);		// Displays the picture to the user and 
-	formatBody();			// formats the text to align in the middle
-							// of the screen.
+	distinguish(level);		// Displays the picture to the user and formats the
+	formatBody();			// text to align in the middle of the screen.
+							
 	cout << "\n\t\t\t\t\t\t\t\t\t  What was the picture you saw? \n" << endl;
 	cout << "\t\t\t\t\t\t\t\t\t\t\t";
 	cin >> guess;
@@ -118,8 +118,8 @@ void memoryGame::runLvlOne()
 	if (guess == picOne)	
 	{
 		level++;
-		formatGuess(level);	// If the user guessed correctly, format 
-		runLvlTwo();			// the next section fo text properly and
+		formatGuess(level);		// If the user guessed correctly, format 
+		runLvlTwo();			// the next section of text properly and
 	}							// run the next level.
 	else
 		exit();
@@ -142,7 +142,7 @@ void memoryGame::runLvlTwo()
 		cout << "\t\t\t\t\t\t\t\t\t\t\t";
 		cin >> guess;
 
-		if (guess == picTwo)
+		if (guess == picTwo)		// Repeats the process of guessing & incrementation. 
 		{
 			level++;
 			formatGuess(level);
@@ -292,19 +292,19 @@ void memoryGame::runLvlFive()
 		exit();
 }
 
-void memoryGame::distinguish(int lvlNum)
-{
+void memoryGame::distinguish(int lvlNum)	// This function distinguishes how many pictures 
+{											// to create based on the appropriate level.
 	int picID = 1;
 
-	picOne = rand() % numVars + 1;
-	picTwo = rand() % numVars + 1;
+	picOne = rand() % numVars + 1;			// Initializes five variables, all assigned random numbers 1 through 5.
+	picTwo = rand() % numVars + 1;			// These serve as a way to randomly generate the pictures.
 	picThree = rand() % numVars + 1;
 	picFour = rand() % numVars + 1;
 	picFive = rand() % numVars + 1;
 
 	if (lvlNum == 1)
 	{
-		createPicture(picOne, picID);
+		createPicture(picOne, picID);	// Passes in two variables, the picture's number, and the ID of the picture.
 	}
 	else if (lvlNum == 2)
 	{
@@ -344,9 +344,9 @@ void memoryGame::distinguish(int lvlNum)
 	}
 }
 
-void memoryGame::createPicture(int selector, int picID)
-{
-	if (selector == 1)
+void memoryGame::createPicture(int picNum, int picID)		// Creates a pictures based on the assigned number, 
+{															// and assigns an ID number for easy identification.
+	if (picNum == 1)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t   _______" << endl;
 		cout << "\t\t\t\t\t\t\t\t\t  |\\_     |        ___________" << endl;
@@ -356,7 +356,7 @@ void memoryGame::createPicture(int selector, int picID)
 		cout << "\t\t\t\t\t\t\t\t\t  |_______|" << endl;
 	}
 
-	else if (selector == 2)
+	else if (picNum == 2)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t   _______" << endl;
 		cout << "\t\t\t\t\t\t\t\t\t  | _____ |        ___________" << endl;
@@ -366,7 +366,7 @@ void memoryGame::createPicture(int selector, int picID)
 		cout << "\t\t\t\t\t\t\t\t\t  |_______|" << endl;
 	}
 
-	else if (selector == 3)
+	else if (picNum == 3)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t   _______" << endl;
 		cout << "\t\t\t\t\t\t\t\t\t  |  ___  |        ___________" << endl;
@@ -376,7 +376,7 @@ void memoryGame::createPicture(int selector, int picID)
 		cout << "\t\t\t\t\t\t\t\t\t  |_______|" << endl;
 	}
 
-	else if (selector == 4)
+	else if (picNum == 4)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t   _______" << endl;
 		cout << "\t\t\t\t\t\t\t\t\t  |   _   |        ___________" << endl;
@@ -386,7 +386,7 @@ void memoryGame::createPicture(int selector, int picID)
 		cout << "\t\t\t\t\t\t\t\t\t  |__| |__|" << endl;
 	}
 
-	else if (selector == 5)
+	else if (picNum == 5)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t   _______" << endl;
 		cout << "\t\t\t\t\t\t\t\t\t  |     __|        ___________" << endl;
@@ -397,7 +397,7 @@ void memoryGame::createPicture(int selector, int picID)
 	}
 }
 
-void memoryGame::formatBody()
+void memoryGame::formatBody()		// Creates essential text
 {
 	cout << "\n\t\t\t\t\t\t\t\t\tThe picture will disappear in 3.. " << endl;
 	Sleep(1250);
@@ -420,7 +420,7 @@ void memoryGame::formatBody()
 	cout << "\t\t\t\t\t\t\t\t\t\t\t";
 }
 
-void memoryGame::formatGuess(int lvlNum)
+void memoryGame::formatGuess(int lvlNum)	// Creates more essential text based on the level the user is on.
 {
 	cout << "\n\t\t\t\t\t\t\t\t\tCorrect! Level " << lvlNum << " will begin in 3.. " << endl;
 	Sleep(1250);
