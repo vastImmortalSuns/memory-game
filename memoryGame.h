@@ -7,8 +7,8 @@
 
 using namespace std;
 
-class memoryGame		// Thanks for checking this out. If you have any ideas/questions
-{				// feel free to email me at jenkinsb1@spu.edu
+class memoryGame	
+{				
 public:
 	void run();				// These four functions deal with setting up the game
 	void initializeMenu();			// and gathering ther user's input.
@@ -24,12 +24,12 @@ public:
 	void distinguish(int lvlNum);	// Functions that create the pictures.
 	void createPicture(int selector, int marker);
 
-	void formatBody();			// Functions that assist in formatting text.
+	void formatBody();		// Functions that assist in formatting text.
 	void formatGuess(int lvlNum);
 	void exit();
 
 private:
-	int curLvl = 0;
+	int curLvl = 0;	
 	int numVars = 5;
 	int picOne, picTwo, picThree, picFour, picFive;
 };
@@ -95,7 +95,7 @@ void memoryGame::checkInput(string inp)
 	}
 }
 
-void memoryGame::startGame()	// Initiliazes the random element and starts the first level.
+void memoryGame::startGame()		// Initiliazes the random element and starts the first level.
 {
 	srand(time(NULL));
 	runLvlOne();
@@ -116,8 +116,8 @@ void memoryGame::runLvlOne()
 	if (guess == picOne)	
 	{
 		level++;
-		formatGuess(level);		// If the user guessed correctly, format the next
-		runLvlTwo();			// section of text properly and run the next level.
+		formatGuess(level);	// If the user guessed correctly, format the next
+		runLvlTwo();		// section of text properly and run the next level.
 	}					
 	else
 		exit();
@@ -291,8 +291,8 @@ void memoryGame::distinguish(int lvlNum)	// This function distinguishes how many
 {						// to create based on the appropriate level.
 	int picID = 1;
 
-	picOne = rand() % numVars + 1;			// Initializes five variables, all assigned random numbers 1 through 5.
-	picTwo = rand() % numVars + 1;			// These serve as a way to randomly generate the pictures.
+	picOne = rand() % numVars + 1;		// Initializes five variables, all assigned random numbers 1 through 5.
+	picTwo = rand() % numVars + 1;		// These serve as a way to randomly generate the pictures.
 	picThree = rand() % numVars + 1;
 	picFour = rand() % numVars + 1;
 	picFive = rand() % numVars + 1;
@@ -339,8 +339,8 @@ void memoryGame::distinguish(int lvlNum)	// This function distinguishes how many
 	}
 }
 
-void memoryGame::createPicture(int picNum, int picID)		// Creates a pictures based on the assigned number, 
-{															// and assigns an ID number for easy identification.
+void memoryGame::createPicture(int picNum, int picID)	// Creates a picture based on the assigned number, 
+{							// and assigns an ID number for easy identification.
 	if (picNum == 1)
 	{
 		cout << "\t\t\t\t\t\t\t\t\t   _______" << endl;
