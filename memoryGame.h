@@ -36,6 +36,7 @@ private:
 
 void memoryGame::initializeMenu()
 {
+	Sleep(6000);
 	cout << "\t\t\t\t\t\t\t\t\t\t      --" << endl;
 	cout << "\t\t\t\t\t    _     B     _     E     _     N     _     ||     _     S     _     P     _     U     _" << endl;
 	cout << "\t\t\t\t\t   / \\___/ \\___/ \\___/ \\___/ \\___/ \\___/ \\___/  \\___/ \\___/ \\___/ \\___/ \\___/ \\___/ \\___/ \\ " << endl;
